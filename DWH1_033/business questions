@@ -1,0 +1,50 @@
+ft reading
+
+dim timeday
+dim location
+dom sensor
+dim parameter
+dim reading mode
+dim alert
+dim weather
+
+ft service
+
+dim timeday
+dim location
+dim sensor
+dim employe 
+dim service type
+dim mentorship program
+
+
+star vs snowflake
+at least 4 dimensions
+At least three measures per fact table (healthy range is 3–6).
+• At least one measure per fact table must be fully additive across time and other dimensions (e.g.,
+counts, costs, volumes).
+• Semi-additive measures are optional but welcome (e.g., averages, ratios, scores).
+
+
+hierarchy levels in dim tables?
+
+At least one conformed (shared) dimension used by both fact tables (besides time).
+• At least two dimensions must include three levels of hierarchy each (and each fact must use at
+least one such dimension).
+• At most one Slowly Changing Dimension of Type 2 (SCD2).
+• At most one degenerate dimension is allowed (justify in 1–2 sentences).
+• At most one junk dimension is allowed (counts as a single dimension even if it consolidates
+multiple attributes).
+
+Create your dimensional/fact tables by executing appropriate DDL statements. Create dimensions
+first, then facts. Include an audit column (etl_load_timestamp TIMESTAMP NOT NULL DEFAULT
+CURRENT_TIMESTAMP) in every dimension and fact table to mimic production load tracking.
+Do not create tables manually outside the ETL - table creation must be part of your pipeline
+
+split sqls into two parts
+- 1 fact, 3 dimensions each
+
+7 sql checks
+
+- prov o
+-report

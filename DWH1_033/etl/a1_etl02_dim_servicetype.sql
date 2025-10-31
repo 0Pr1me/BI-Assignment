@@ -1,0 +1,18 @@
+-- Make A1 dwh_033, stg_033 schemas the default for this session
+SET search_path TO dwh_033, stg_033;
+
+-- =======================================
+-- Load [table name]
+-- =======================================
+
+-- Step 1: Truncate target table
+TRUNCATE TABLE dim_servicetype RESTART IDENTITY CASCADE;
+
+INSERT INTO dim_servicetype (tb_servicetype_id, typename)
+SELECT DISTINCT st.id, st.typename
+FROM tb_servicetype st
+ORDER BY st.id;
+
+
+
+

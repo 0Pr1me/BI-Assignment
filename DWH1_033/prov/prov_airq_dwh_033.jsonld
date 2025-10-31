@@ -1,0 +1,221 @@
+{
+  "@context": {
+    "prov": "http://www.w3.org/ns/prov#",
+    "dct": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "oltp://tb_<oltp_table_1>",
+      "@type": "prov:Entity",
+      "dct:title": "tb_<oltp_table_1>",
+      "dct:format": "text/csv"
+    },
+    {
+      "@id": "oltp://tb_<oltp_table_2>",
+      "@type": "prov:Entity",
+      "dct:title": "tb_<oltp_table_2>",
+      "dct:format": "text/csv"
+    },
+    {
+      "@id": "oltp://tb_<oltp_table_3>",
+      "@type": "prov:Entity",
+      "dct:title": "tb_<oltp_table_3>",
+      "dct:format": "text/csv"
+    },
+    {
+      "@id": "oltp://tb_<oltp_table_4>",
+      "@type": "prov:Entity",
+      "dct:title": "tb_<oltp_table_4>",
+      "dct:format": "text/csv"
+    },
+    {
+      "@id": "oltp://tb_<oltp_table_a>",
+      "@type": "prov:Entity",
+      "dct:title": "tb_<oltp_table_a>",
+      "dct:format": "text/csv"
+    },
+    {
+      "@id": "oltp://tb_<oltp_table_b>",
+      "@type": "prov:Entity",
+      "dct:title": "tb_<oltp_table_b>",
+      "dct:format": "text/csv"
+    },
+    {
+      "@id": "oltp://tb_<oltp_table_c>",
+      "@type": "prov:Entity",
+      "dct:title": "tb_<oltp_table_c>",
+      "dct:format": "text/csv"
+    },
+    {
+      "@id": "file:etl/a1_etl01_dim_timeday.sql",
+      "@type": [
+        "prov:Entity",
+        "prov:Plan"
+      ],
+      "dct:title": "a1_etl01_dim_timeday.sql",
+      "dct:format": "text/sql",
+      "contentHash": "d04ea3bd76d162de6c1d25987fefe910003ccbec4f976e44503051ac6d7f0095"
+    },
+    {
+      "@id": "file:etl/a1_etl02_dim_servicetype.sql",
+      "@type": [
+        "prov:Entity",
+        "prov:Plan"
+      ],
+      "dct:title": "a1_etl02_dim_servicetype.sql",
+      "dct:format": "text/sql",
+      "contentHash": "3f0c9631b566ad5d1874061f616e6d57b38782bf657360f9e751ec498d2e646f"
+    },
+    {
+      "@id": "file:etl/a1_etl03_dim_parameter.sql",
+      "@type": [
+        "prov:Entity",
+        "prov:Plan"
+      ],
+      "dct:title": "a1_etl03_dim_parameter.sql",
+      "dct:format": "text/sql",
+      "contentHash": "3752db2e704ad91518d2c65bead2b812d5d809ff5daef20fa101fccf0bc55782"
+    },
+    {
+      "@id": "file:etl/a1_etl04_dim_technician_role_scd2.sql",
+      "@type": [
+        "prov:Entity",
+        "prov:Plan"
+      ],
+      "dct:title": "a1_etl04_dim_technician_role_scd2.sql",
+      "dct:format": "text/sql",
+      "contentHash": "ed5d487ff183dbf9d7bb41bb4df43b031a330656e28c93ece6c6cec2edfa02c5"
+    },
+    {
+      "@id": "file:etl/a1_etl06_ft_name1.sql",
+      "@type": [
+        "prov:Entity",
+        "prov:Plan"
+      ],
+      "dct:title": "a1_etl06_ft_name1.sql",
+      "dct:format": "text/sql",
+      "contentHash": "fd98d83c607df0a7ebb8965cc9f925c4c261abfd2bb9d59ed0a89089aca59e59"
+    },
+    {
+      "@id": "file:etl/a1_etl07_ft_name2.sql",
+      "@type": [
+        "prov:Entity",
+        "prov:Plan"
+      ],
+      "dct:title": "a1_etl07_ft_name2.sql",
+      "dct:format": "text/sql",
+      "contentHash": "a32fb1431ec2dbee59a1e71f31ab5417493356f9dedcdc7acc34611b27556178"
+    },
+    {
+      "@id": "db://airq/dwh_033/dim_parameter",
+      "@type": "prov:Entity",
+      "dct:title": "dim_parameter",
+      "rowCount": 30
+    },
+    {
+      "@id": "db://airq/dwh_033/dim_servicetype",
+      "@type": "prov:Entity",
+      "dct:title": "dim_servicetype",
+      "rowCount": 24
+    },
+    {
+      "@id": "db://airq/dwh_033/dim_technician_role_scd2",
+      "@type": "prov:Entity",
+      "dct:title": "dim_technician_role_scd2",
+      "rowCount": 484
+    },
+    {
+      "@id": "db://airq/dwh_033/dim_timeday",
+      "@type": "prov:Entity",
+      "dct:title": "dim_timeday",
+      "rowCount": 5
+    },
+    {
+      "@id": "db://airq/dwh_033/ft_name1",
+      "@type": "prov:Entity",
+      "dct:title": "ft_name1",
+      "rowCount": 5
+    },
+    {
+      "@id": "db://airq/dwh_033/ft_name2",
+      "@type": "prov:Entity",
+      "dct:title": "ft_name2",
+      "rowCount": 5
+    },
+    {
+      "@id": "urn:airq:etl:group:033:2025-10-31T13:56:04Z",
+      "@type": "prov:Activity",
+      "dct:description": "Assignment 1 ETL run for dwh_033",
+      "prov:startedAtTime": "2025-10-31T13:56:04Z",
+      "prov:endedAtTime": "2025-10-31T13:56:04Z",
+      "prov:used": [
+        "oltp://tb_<oltp_table_1>",
+        "oltp://tb_<oltp_table_2>",
+        "oltp://tb_<oltp_table_3>",
+        "oltp://tb_<oltp_table_4>",
+        "oltp://tb_<oltp_table_a>",
+        "oltp://tb_<oltp_table_b>",
+        "oltp://tb_<oltp_table_c>",
+        "file:etl/a1_etl01_dim_timeday.sql",
+        "file:etl/a1_etl02_dim_servicetype.sql",
+        "file:etl/a1_etl03_dim_parameter.sql",
+        "file:etl/a1_etl04_dim_technician_role_scd2.sql",
+        "file:etl/a1_etl06_ft_name1.sql",
+        "file:etl/a1_etl07_ft_name2.sql"
+      ],
+      "prov:generated": [
+        "db://airq/dwh_033/dim_parameter",
+        "db://airq/dwh_033/dim_servicetype",
+        "db://airq/dwh_033/dim_technician_role_scd2",
+        "db://airq/dwh_033/dim_timeday",
+        "db://airq/dwh_033/ft_name1",
+        "db://airq/dwh_033/ft_name2"
+      ],
+      "prov:wasAssociatedWith": [
+        "urn:person:A",
+        "urn:person:B",
+        "urn:software:jupyter",
+        "urn:software:postgres",
+        "urn:software:os"
+      ],
+      "prov:qualifiedAssociation": [
+        {
+          "@type": "prov:Association",
+          "prov:agent": "urn:person:A",
+          "prov:hadRole": "owner:ft_<meaningfulname1>"
+        },
+        {
+          "@type": "prov:Association",
+          "prov:agent": "urn:person:B",
+          "prov:hadRole": "owner:ft_<meaningfulname2>"
+        }
+      ]
+    },
+    {
+      "@id": "urn:person:A",
+      "@type": "prov:Agent",
+      "dct:title": "Surname, Name"
+    },
+    {
+      "@id": "urn:person:B",
+      "@type": "prov:Agent",
+      "dct:title": "Surname, Name"
+    },
+    {
+      "@id": "urn:software:jupyter",
+      "@type": "prov:SoftwareAgent",
+      "dct:title": "Jupyter Notebook"
+    },
+    {
+      "@id": "urn:software:postgres",
+      "@type": "prov:SoftwareAgent",
+      "dct:title": "PostgreSQL"
+    },
+    {
+      "@id": "urn:software:os",
+      "@type": "prov:SoftwareAgent",
+      "dct:title": "posix"
+    }
+  ]
+}
