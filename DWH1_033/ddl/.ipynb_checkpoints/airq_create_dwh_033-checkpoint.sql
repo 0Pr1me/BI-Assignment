@@ -16,38 +16,10 @@ DROP TABLE IF EXISTS ft_name2;
 -- 3) CREATE TABLE statements for facts and dimensions
 -- Please make sure the order in which individual statements are executed respects the FOREIGN KEY constraints
 -- -------------------------------
-
--- Mofified Create Table statement
-CREATE TABLE dwh_033.dim_timeday (
-    dim_timeday_pk INT NOT NULL PRIMARY KEY,
-    date_actual DATE NOT NULL,
-    day_of_week SMALLINT NOT NULL,
-    day_name VARCHAR(10) NOT NULL,
-    month SMALLINT NOT NULL,
-    month_name VARCHAR(10) NOT NULL,
-    quarter SMALLINT NOT NULL,
-    year INT NOT NULL,
-    is_weekend_flag CHAR(1) NOT NULL,
-    etl_load_timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-);
-
--- New Dimension Table (location)
-CREATE TABLE dwh_033.dim_location (
-    dim_location_pk SERIAL NOT NULL PRIMARY KEY,
-    device_business_key INT NOT NULL,
-    location_name VARCHAR(255),
-    location_type VARCHAR(100),
-    altitude DECIMAL(10, 2),
-    installed_date DATE,
-    city_name VARCHAR(255) NOT NULL,
-    city_population BIGINT,
-    latitude DECIMAL(9, 6),
-    longitude DECIMAL(9, 6),
-    country_name VARCHAR(255) NOT NULL,
-    country_population BIGINT,
-    sensor_manufacturer VARCHAR(255),
-    sensor_technology VARCHAR(255),
-    etl_load_timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE dim_timeday (
+    id INT NOT NULL PRIMARY KEY
+    -- , ...
+	, etl_load_timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE dim_servicetype (
