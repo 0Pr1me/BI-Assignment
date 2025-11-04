@@ -1,15 +1,13 @@
---Modified file
 -- Make A1 dwh_033 schema the default for this session
 SET search_path TO dwh_033;
 
 -- -------------------------------
 -- 2) DROP TABLE before attempting to create DWH schema tables
--- (Drop facts first, in reverse order of creation)
 -- -------------------------------
 DROP TABLE IF EXISTS ft_service;
 DROP TABLE IF EXISTS ft_reading;
 
--- (Drop dimensions)
+-- Dimensions
 DROP TABLE IF EXISTS dim_timeday;
 DROP TABLE IF EXISTS dim_location;
 DROP TABLE IF EXISTS dim_technician;
@@ -19,8 +17,8 @@ DROP TABLE IF EXISTS dim_reading_mode;
 DROP TABLE IF EXISTS dim_alert;
 
 -- -------------------------------
--- 3) CREATE TABLE statements for dimensions
--- (Dimensions must be created before the fact tables that reference them)
+-- 3) CREATE TABLE statements for facts and dimensions
+-- Please make sure the order in which individual statements are executed respects the FOREIGN KEY constraints
 -- -------------------------------
 
 -- Time Dimension (Daily Grain)
