@@ -1,0 +1,21 @@
+WITH
+ MEMBER [Measures].[Jan] AS ([dim_timemonth].[Time].[2024].[1].[Jan], [Measures].[Exceed Days (any)])
+ MEMBER [Measures].[Feb] AS ([dim_timemonth].[Time].[2024].[1].[Feb], [Measures].[Exceed Days (any)])
+ MEMBER [Measures].[Mar] AS ([dim_timemonth].[Time].[2024].[1].[Mar], [Measures].[Exceed Days (any)])
+
+
+SELECT
+ -- By selecting these specific members, we force them to appear as DataFrame columns
+ { [Measures].[Jan], [Measures].[Feb], [Measures].[Mar] } ON COLUMNS,
+
+
+ -- Rows: All Countries
+ NON EMPTY [dim_city].[Geo].[country_name].Members ON ROWS
+
+
+-- Sub-Select: Pre-filter the cube for Parameter PM2
+FROM (
+ SELECT ( [dim_param].[Param].[param_name].&[PM2] ) ON 0
+ FROM [AirQ Cube]
+)
+

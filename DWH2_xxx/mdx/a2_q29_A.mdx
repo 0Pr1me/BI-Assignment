@@ -1,0 +1,27 @@
+WITH
+ -- 1. Define specific members for the years to force them into columns
+ MEMBER [Measures].[2023 Data Volume] AS (
+   [dim_timemonth].[Time].[year_num].&[2023],
+   [Measures].[Data Volume (KB)]
+ )
+ MEMBER [Measures].[2024 Data Volume] AS (
+   [dim_timemonth].[Time].[year_num].&[2024],
+   [Measures].[Data Volume (KB)]
+ )
+
+
+SELECT
+ -- 2. Select these custom members on Columns
+ { [Measures].[2023 Data Volume], [Measures].[2024 Data Volume] } ON COLUMNS,
+
+
+ -- 3. Select Countries on Rows (NON EMPTY hides countries with no data)
+ NON EMPTY [dim_city].[Geo].[country_name].Members ON ROWS
+
+
+-- 4. Filter everything by "Eastern Europe" using a Sub-Select
+FROM (
+ SELECT ( [dim_city].[Geo].[region_name].&[Eastern Europe] ) ON 0
+ FROM [AirQ Cube]
+)
+

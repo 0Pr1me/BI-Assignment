@@ -1,0 +1,27 @@
+WITH
+ -- 1. Define a specific member for 2024 Missing Days
+ -- This ensures both the displayed column and the sorting logic use 2024 data
+ MEMBER [Measures].[Missing Days 2024] AS (
+   [dim_timemonth].[Time].[year_num].&[2024],
+   [Measures].[Missing Days]
+ )
+
+
+SELECT
+ -- 2. Show the calculated measure on Columns
+ { [Measures].[Missing Days 2024] } ON COLUMNS,
+
+
+ -- 3. Show Top 10 Countries on Rows
+ -- Logic: Filter countries with data -> Pick Top 10 based on the 2024 measure
+ TOPCOUNT(
+   NONEMPTY(
+     [dim_city].[Geo].[country_name].Members,
+     [Measures].[Missing Days 2024]
+   ),
+   10,
+   [Measures].[Missing Days 2024]
+ ) ON ROWS
+
+
+FROM [AirQ Cube]

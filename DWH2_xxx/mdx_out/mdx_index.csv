@@ -1,0 +1,6 @@
+file,csv,rows,cols,seconds,error
+a2_q01_A.mdx,a2_q01_A.csv,17,5,0.128,
+a2_q26_A.mdx,a2_q26_A.csv,20,4,0.118,
+a2_q27_A.mdx,a2_q27_A.csv,4,6,0.075,
+a2_q28_A.mdx,a2_q28_A.csv,10,3,0.06,
+a2_q29_A.mdx,a2_q29_A.csv,5,4,0.057,

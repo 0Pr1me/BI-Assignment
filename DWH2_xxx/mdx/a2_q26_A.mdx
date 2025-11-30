@@ -1,0 +1,30 @@
+WITH
+ -- 1. Define specific member for PM1 in 2024
+ MEMBER [Measures].[PM1] AS (
+   [dim_timemonth].[Time].[2024],
+   [dim_param].[Param].[param_name].&[PM1],
+   [Measures].[Avg Recorded Value]
+ )
+
+
+ -- 2. Define specific member for NO2 in 2024
+ MEMBER [Measures].[NO2] AS (
+   [dim_timemonth].[Time].[2024],
+   [dim_param].[Param].[param_name].&[NO2],
+   [Measures].[Avg Recorded Value]
+ )
+
+
+SELECT
+ -- 3. Select the two calculated parameters on Columns
+ {
+   [Measures].[PM1],
+   [Measures].[NO2]
+ } ON COLUMNS,
+
+
+ -- 4. Select All Countries on Rows
+ NON EMPTY [dim_city].[Geo].[country_name].Members ON ROWS
+
+
+FROM [AirQ Cube]
